@@ -79,6 +79,25 @@ let timerID = setInterval(function() {
     document.getElementById("myTimer").innerHTML = elapsed.toFixed(3);
 }, 10);
 
+
+let running = true;
+document.getElementById("myBtn").addEventListener("click", function () {
+    if (running) {
+        clearInterval(timerID);
+        document.getElementById("myBtn").innerHTML = "Start";
+        running = false;
+    } else {
+        let start = new Date().getTime();
+        timerID = setInterval(function() {
+        let current = new Date().getTime();
+        let elapsed = (current - start) / 1000;
+
+        document.getElementById("myTimer").innerHTML = elapsed.toFixed(3);}, 10);
+
+        document.getElementById("myBtn").innerHTML = "Stop";
+        running = true;
+    }
+});
 // ============================================
 //  PART 3: Start/Stop Toggle Button
 // ============================================
