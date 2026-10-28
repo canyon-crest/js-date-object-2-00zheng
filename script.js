@@ -63,7 +63,7 @@ document.getElementById("myDate").innerHTML = (monnum + "/" + date + "/" + year)
 
 // STEP 11: Record the start time using new Date().getTime()
 //          This gives you the current time in milliseconds.
-let time = new Date().getTime();
+
 // STEP 12: Create a variable to hold the timer ID (for stopping later).
 //          Use setInterval() with a delay of 10 milliseconds.
 //          Inside the interval function:
@@ -71,7 +71,13 @@ let time = new Date().getTime();
 //          b) Calculate elapsed seconds: (currentTime - startTime) / 1000
 //          c) Display the elapsed time using .toFixed(3)
 //             in the element with ID "myTimer"
-let id = 
+let start = new Date().getTime();
+let timerID = setInterval(function() {
+    let current = new Date().getTime();
+    let elapsed = (current - start) / 1000;
+
+    document.getElementById("myTimer").innerHTML = elapsed.toFixed(3);
+}, 10);
 
 // ============================================
 //  PART 3: Start/Stop Toggle Button
